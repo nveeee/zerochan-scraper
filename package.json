@@ -1,0 +1,32 @@
+{
+  "name": "zerochan-scraper",
+  "version": "1.0.0",
+  "description": "Scrapes image data from zerochan.net",
+  "main": "api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "TheBetterEnvy",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.0",
+    "eslint-config-aqua": "^4.4.1"
+  },
+  "eslintConfig": {
+    "extends": "aqua",
+    "rules": {
+      "no-console": 0
+    },
+    "parserOptions": {
+      "sourceType": "module"
+    },
+    "env": {
+      "node": true
+    }
+  }
+}
