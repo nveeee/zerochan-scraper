@@ -46,11 +46,33 @@ module.exports = {
 							.last()
 							.attr('href')) results.pop();
 					});
-					console.log(results);
 					return results;
 				})
 				.catch(err => console.error(err));
 		}
 		return console.error(`Error: "${keyword}" is an invalid search term.`);
+	},
+
+	/**
+	 * Returns first image result
+	 * @param {string} keyword
+	 */
+	getFirstResult: async function(keyword, options) {
+		const obj = {
+			uri: `https://zerochan.net/${parseInput(keyword)}`,
+			transform: function(body) {
+				return cheerio.load(body);
+			}
+		};
+
+		return await rp(obj, options)
+			.then($ => {
+				return $('#thumbs2').children('li').first()
+					.children('p')
+					.children('a')
+					.last()
+					.attr('href');
+			})
+			.catch(err => console.error(err));
 	}
 };
